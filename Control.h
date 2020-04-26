@@ -16,7 +16,18 @@ public:
   void test_move_back_and_force();
   void test_move_back_and_force_with_sensor(long distance);
 
+  void curve_infrontof_wall(long distance);
+
+  void turn_right();
+  void turn_left();
+  void move_forth();
+  void move_back();
+
 private:
+  void left_wheel_forth();
+  void left_wheel_back();
+  void right_wheel_forth();
+  void right_wheel_back();
 };
 
 #endif

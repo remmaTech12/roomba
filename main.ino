@@ -12,7 +12,6 @@ the L293D chip
 #define ECHO_PIN 11
 
 SR04 sr04 = SR04(ECHO_PIN,TRIG_PIN);
-long distance;
 Control ctrl = Control();
 
 void setup() {
@@ -23,9 +22,12 @@ void setup() {
 }
 
 void loop() {
-  distance=sr04.Distance();
+  long distance=sr04.Distance();
   Serial.print(distance);
   Serial.println("cm");
 
-  ctrl.test_move_back_and_force_with_sensor(distance);
+  ctrl.curve_infrontof_wall(distance);
+  //ctrl.turn_right();
+  //ctrl.turn_left();
+  //ctrl.test_move_back_and_force_with_sensor(distance);
 }
